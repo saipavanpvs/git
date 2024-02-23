@@ -1,0 +1,64 @@
+'''
+Docker is a container runtime technology that allows you to build, test, and deploy applications faster than traditional methods. It packages software into standardized units called containers with everything the software needs to run—including libraries, system tools, and code. Kubernetes is a container orchestration tool that allows you to scale your container systems so you can manage, coordinate and schedule containers at a vast scale.
+
+'''
+
+
+In docker, it is not possible for Auto healing, auto scaling and it is a single host and it is used only on development perspective but not n enterporise level.
+
+'''
+Kuberenetes components:
+--------------------------------------------
+1. Master Components:
+The master components are responsible for managing and controlling the Kubernetes cluster. They operate on the control plane and make global decisions about the cluster (e.g., scheduling), as well as detecting and responding to cluster events (e.g., starting up a new pod when a deployment's replicas field is unsatisfied).
+
+kube-apiserver:
+
+Description: The API server is the component that exposes the Kubernetes API, handling requests from various sources, including the command-line tool kubectl and the Kubernetes Dashboard. It validates and processes API requests, and communicates with the cluster's etcd datastore.
+etcd:
+
+Description: A distributed key-value store that stores the configuration data of the cluster. It acts as the source of truth for the cluster's state, ensuring consistency and reliability.
+kube-scheduler:
+
+Description: This component is responsible for assigning newly created pods to nodes. It takes into account factors like resource requirements, node affinity, and anti-affinity, ensuring an optimal spread of pods across the cluster.
+kube-controller-manager:
+
+Description: Runs controller processes that regulate the state of the system. Various controllers manage different aspects of the cluster, such as nodes, replication, endpoints, etc. They continuously work towards achieving and maintaining the desired state.
+2. Node Components:
+Node components run on every node in the cluster and are responsible for managing the containers and providing the necessary network connectivity.
+
+kubelet:
+
+Description: The kubelet is an agent that runs on each node and ensures that containers are running in a Pod. It receives Pod definitions from the control plane and ensures the described containers are started and healthy.
+kube-proxy:
+
+Description: Maintains network rules on nodes. It handles communication between Pods and external entities, forwarding requests to the correct destination based on IP and port rules.
+Container Runtime:
+
+Description: The container runtime is responsible for running containers. It could be Docker, containerd, or another compatible runtime. The runtime pulls container images, runs containers, and manages their lifecycle.
+3. Workload Abstractions:
+Workload abstractions represent the units of application deployment and scaling in Kubernetes.
+
+Pods:
+
+Description: The smallest deployable units in the Kubernetes object model. A Pod represents a single instance of a running process in a cluster and can contain one or more containers that are tightly coupled.
+Controllers (ReplicaSet, Deployment, StatefulSet, DaemonSet):
+
+Description: Controllers manage the deployment and scaling of Pods.
+ReplicaSet: Ensures a specified number of replicas of Pods are running.
+Deployment: Manages the deployment and scaling of Pods, providing declarative updates.
+StatefulSet: Manages stateful applications, maintaining the identity of each Pod.
+DaemonSet: Ensures a Pod runs on each node in the cluster, often used for system daemons.
+Services:
+
+Description: Services define a set of Pods and provide a stable endpoint for accessing them. Services enable communication between different parts of an application within the cluster.
+Persistent Volumes (PV) and Persistent Volume Claims (PVC):
+
+Description: Volumes provide a way for Pods to request and use persistent storage. Persistent Volumes are resources in the cluster, and Persistent Volume Claims are requests for those resources.
+ConfigMap and Secret:
+
+Description: ConfigMaps store configuration data, and Secrets store sensitive data. They allow the separation of configuration and sensitive information from application code.
+Ingress:
+
+Description: Manages external access to services within a cluster. Ingress defines rules for routing external HTTP/S traffic to services based on hostnames and paths.
+'''
